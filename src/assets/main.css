@@ -1,0 +1,224 @@
+/* ==========================================
+   ГЛОБАЛЬНЫЕ СТИЛИ: ТЁМНАЯ ТЕМА + ЖЁЛТЫЕ КНОПКИ
+   Стиль: shaurmaotdushi.ru
+   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+
+:root {
+  --bg-primary: #0d0d0f;
+  --bg-secondary: #16161a;
+  --bg-card: #1a1a1f;
+  --border-subtle: #2a2a30;
+  
+  --text-main: #e4e4e7;
+  --text-muted: #a1a1aa;
+  --text-heading: #ffffff;
+  
+  --accent-yellow: #fbbf24;
+  --accent-yellow-hover: #f59e0b;
+  --accent-yellow-glow: rgba(251, 191, 36, 0.35);
+  
+  --accent-orange: #f97316;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--accent-yellow);
+  color: var(--bg-primary);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-heading);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--accent-yellow);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+button, .btn, .primary-btn, .add-btn, .category-btn, .dish-btn, .login-btn {
+  background: var(--accent-yellow);
+  color: #0d0d0f;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px var(--accent-yellow-glow);
+}
+
+button:hover, .btn:hover, .primary-btn:hover, .add-btn:hover, .category-btn:hover, .dish-btn:hover, .login-btn:hover {
+  background: var(--accent-yellow-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--accent-yellow-glow);
+}
+
+button:active, .btn:active {
+  transform: translateY(-1px);
+}
+
+button:disabled, .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.secondary-btn, .reset-btn, .back-btn {
+  background: transparent;
+  color: var(--accent-yellow);
+  border: 2px solid var(--accent-yellow);
+}
+
+.secondary-btn:hover, .reset-btn:hover, .back-btn:hover {
+  background: var(--accent-yellow);
+  color: var(--bg-primary);
+}
+
+a {
+  color: var(--accent-yellow);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-yellow-hover);
+}
+
+input, textarea, select {
+  background: var(--bg-secondary);
+  color: var(--text-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.875rem 1rem;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent-yellow);
+  box-shadow: 0 0 0 3px var(--accent-yellow-glow);
+}
+
+.card, .content-box, .admin-content, .upload-section, .dish-card, .category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+header, .header {
+  background: rgba(13, 13, 15, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.main-nav a {
+  color: var(--text-main);
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-yellow);
+  transition: width 0.3s;
+}
+
+.main-nav a:hover, .main-nav a.router-link-active {
+  color: var(--accent-yellow);
+}
+
+.main-nav a:hover::after, .main-nav a.router-link-active::after {
+  width: 100%;
+}
+
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: 4rem;
+  padding: 3rem 0 2rem;
+}
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-yellow); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-yellow-hover); }
+
+/* Анимация появления */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  .container { padding: 0 1rem; }
+  
+  button, .btn {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  
+  button, .btn {
+    width: 100%;
+    padding: 0.875rem;
+  }
+}
